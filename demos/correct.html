@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--THIS IS JUST A DEMO-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @keyframes bang {
+    from {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+
+  .hoverme {
+    width: 240px;
+    margin: 150px auto 0;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .hoverme span {
+    color: #333;
+    font-size: 0.9em;
+  }
+
+  .hoverme i {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 8px;
+    background: red;
+    opacity: 0;
+  }
+</style>
+<title>Confetti Example</title>
+</head>
+<body>
+    <h1>Correct demo</h1>
+  <button onclick="answerCorrect(this)" class="hoverme">
+  	<span>
+        Click for confetti
+    </span>
+  </button>
+  <audio src="audio/newbettersound.mp3" id="sound1"></audio>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    let sound1 = document.getElementById("sound1");
+    function answerCorrect(button) {
+      sound1.play();
+      var c = document.createDocumentFragment();
+      for (var i = 0; i < 100; i++) {
+        var styles = 'transform: translate3d(' + (random(500) - 250) + 'px, ' + (random(200) - 150) + 'px, 0) rotate(' + random(360) + 'deg);\
+                      background: hsla(' + random(360) + ',100%,50%,1);\
+                      animation: bang 700ms ease-out forwards;\
+                      opacity: 0';
+
+        var e = document.createElement("i");
+        e.style.cssText = styles.toString();
+        c.appendChild(e);
+      }
+      button.appendChild(c);
+    }
+
+    function random(max) {
+      return Math.random() * (max - 0) + 0;
+    }
+  </script>
+</body>
+</html>
