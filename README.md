@@ -1,2 +1,2 @@
 # quiz
-Quiz site (not published) with khan academy sounds and confetti effects
+Quiz site with khan academy sounds and confetti effects
