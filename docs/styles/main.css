@@ -15,4 +15,6 @@ input[type=checkbox]{height:40px;width:40px;accent-color: grey;}
 input[type=radio], input[type=checkbox]:hover{cursor:pointer}
 label{font-family:'Open Sans', sans-serif}
 button span{color:white;}
+h2{color:dodgerblue;text-align: center;}
+.quiz{padding: 20px;background-color: wheat;font-family: 'Open Sans', sans-serif;}
 
