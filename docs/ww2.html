@@ -182,7 +182,7 @@ checkq4.addEventListener("click", function() {
 });
 let checkq5 = document.getElementById("checkq5");
 checkq5.addEventListener("click", function() {
-    if (document.getElementById("52").checked && document.getElementById("56").checked && document.getElementById("57").checked && document.getElementById("58").checked) {
+    if (document.getElementById("52").checked && document.getElementById("56").checked && document.getElementById("57").checked && document.getElementById("58").checked && !document.getElementById("51").checked && !document.getElementById("53").checked && !document.getElementById("54").checked && !document.getElementById("55").checked) {
         correctAnswers++;
         console.log(correctAnswers);
         answerCorrect(this);
