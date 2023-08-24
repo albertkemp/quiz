@@ -8,6 +8,17 @@
         <link rel="stylesheet" href="styles/main.css"></head>
         <link rel="shortcut icon" href="images/kempacademylogo.png">
         <body>
+            <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Are you sure you want to delete your comment?</p>
+      <button class="close">Cancel</button><button style="background-color: red;color:white;" id="deleteComment">Delete</button>
+    </div>
+  
+  </div>  
             <h1 style="text-align: center;">KEMP ACADEMY - HOME</h1>
             <h2>LESSONS:</h2>
             <ul>
@@ -44,10 +55,14 @@ submit.addEventListener("click", function() {
     let commentValue = comment.value;
     let userComment = document.createElement("p");
     comments.appendChild(userComment);
-    userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue;
+    userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue + "<button id='myBtn'><span class='material-symbols-outlined'>delete</span></button>";
     amountOfComments++;
     commentsAmount.textContent = "Comments (" + amountOfComments + "):";
+    document.getElementById("deleteComment").addEventListener("click", function() {
+        userComment.remove();
+    });
 });
+
 </script>
         </body>
         
