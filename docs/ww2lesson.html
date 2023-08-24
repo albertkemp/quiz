@@ -19,8 +19,8 @@ The western third of Poland went to Germany while the other two thirds went to t
 Unfortunately for Hitler, France and Britain declared war on Germany after the invasion on Poland. Although France, Britain and Poland were against Germany combined, Germany had one of the most powerful and efficient militaries of the time and proved a hard opponent to beat. Germany also possessed the most powerful air force of the time, the Luftwaffe.
 
 After many attacks, battles and invasions Germany finally succumbed to the Allied powers.
-
-<strong>Written by Albert Kemp</strong>
+</p>
+<p><strong>Written by Albert Kemp</strong></p>
 <h2>Bibliography:</h2>
 <ul>
     <li>Encyclopedia Brittanica (WWII) - <a href="https://www.britannica.com/event/World-War-II">https://www.britannica.com/event/World-War-II</a></li>
@@ -30,6 +30,28 @@ After many attacks, battles and invasions Germany finally succumbed to the Allie
     <div style="height:100px;width:100px;background-color: red;color:white;">Test your knowledge with our WWII quiz!</div>
     <a href="ww2.html"><button>Go to our WWII quiz >></button></a>
 </div>
-        </p>
+<h1>Comment below.</h1>
+<label>Name:</label><input id="name" placeholder="Enter your name here..">
+<label>Comment:</label><input id="comment" placeholder="Type your comment here.."><button id="submit">Submit comment</button>
+<h2 id="commentsAmount">Comments (0):</h2>
+<div id="comments"></div>
+<footer>Copyright &copy; Kemp Academy 2023.</footer>
+<script>
+let commentsAmount = document.getElementById("commentsAmount");
+let amountOfComments = 0;
+let name = document.getElementById("name");
+let comment = document.getElementById("comment");
+let submit = document.getElementById("submit");
+let comments = document.getElementById("comments");
+submit.addEventListener("click", function() {
+	let nameValue = name.value;
+    let commentValue = comment.value;
+    let userComment = document.createElement("p");
+    comments.appendChild(userComment);
+    userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue;
+    amountOfComments++;
+    commentsAmount.textContent = "Comments (" + amountOfComments + "):";
+});
+</script>
     </body>
 </html>

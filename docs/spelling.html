@@ -87,6 +87,29 @@ udes/css/sticky.css" rel="stylesheet" type="text/css">
             <button class="hoverme" id="checkq5">Check</button>
             <button onclick="checkAnswers()">Check answers</button>
             <button onclick="showSummary()">Show summary</button>
+            <h1>Comment below.</h1>
+<label>Name:</label><input id="name" placeholder="Enter your name here..">
+<label>Comment:</label><input id="comment" placeholder="Type your comment here.."><button id="submit">Submit comment</button>
+<h2 id="commentsAmount">Comments (0):</h2>
+<div id="comments"></div>
+<footer>Copyright &copy; Kemp Academy 2023.</footer>
+<script>
+let commentsAmount = document.getElementById("commentsAmount");
+let amountOfComments = 0;
+let name = document.getElementById("name");
+let comment = document.getElementById("comment");
+let submit = document.getElementById("submit");
+let comments = document.getElementById("comments");
+submit.addEventListener("click", function() {
+	let nameValue = name.value;
+    let commentValue = comment.value;
+    let userComment = document.createElement("p");
+    comments.appendChild(userComment);
+    userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue;
+    amountOfComments++;
+    commentsAmount.textContent = "Comments (" + amountOfComments + "):";
+});
+</script>
 <audio src="https://www.myinstants.com/media/sounds/khan-academy-end-of-task-sound.mp3" id="sound2"></audio>
 <audio src="audio/newbettersound.mp3" id="sound1"></audio>
 

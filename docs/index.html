@@ -25,7 +25,29 @@
                 <img src="images/confetti.png" height="400px" style="margin: auto;">
                 <caption>Above: The nice confetti effect when you level up in Kemp Academy.</caption>
             </div>
-            <footer>Copyright &copy; Kemp Academy 2023.</footer>
+            <h1>Comment below.</h1>
+<label>Name:</label><input id="name" placeholder="Enter your name here..">
+<label>Comment:</label><input id="comment" placeholder="Type your comment here.."><button id="submit">Submit comment</button>
+<h2 id="commentsAmount">Comments (0):</h2>
+<div id="comments"></div>
+<footer>Copyright &copy; Kemp Academy 2023.</footer>
+<script>
+let commentsAmount = document.getElementById("commentsAmount");
+let amountOfComments = 0;
+let name = document.getElementById("name");
+let comment = document.getElementById("comment");
+let submit = document.getElementById("submit");
+let comments = document.getElementById("comments");
+submit.addEventListener("click", function() {
+	let nameValue = name.value;
+    let commentValue = comment.value;
+    let userComment = document.createElement("p");
+    comments.appendChild(userComment);
+    userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue;
+    amountOfComments++;
+    commentsAmount.textContent = "Comments (" + amountOfComments + "):";
+});
+</script>
         </body>
         
 </html>
