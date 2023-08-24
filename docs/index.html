@@ -4,10 +4,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <title>Home - Kemp Academy</title>    
         <link rel="stylesheet" href="styles/main.css"><link rel="shortcut icon" href="images/kempacademylogo.png">
     <style>
-        .modal {
+        /* The Modal (background) */
+.modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -60,11 +62,28 @@
                 <img src="images/confetti.png" height="400px" style="margin: auto;">
                 <caption>Above: The nice confetti effect when you level up in Kemp Academy.</caption>
             </div>
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <!--<span class="close">&times;</span>-->
+                <h2>Are you sure you want to clear all comments?</h2>
+                <button class="close">Cancel</button>
+                <button style="background-color:red;color:white;" id="clearStuff">Clear</button>
+              </div>
+            
+            </div>
             <h1>Comment:</h1>
-<label>Name:</label><input id="name" placeholder="Enter your name here..">
-<label>Comment:</label><input id="comment" placeholder="Type your comment here.."><button id="submit">Submit comment</button>
-<h2 id="commentsAmount">Comments (0):</h2>
-<div id="comments"></div>
+            <label>Name:</label><input id="name" placeholder="Enter your name here..">
+            <label>Comment:</label><input id="comment" placeholder="Type your comment here.."><button id="submit" style="background-color:blue;color:white;"><span class="material-symbols-outlined">
+            send
+            </span></button>
+            <h2 id="commentsAmount">Comments (0):</h2>
+            <button id="myBtn" style="background-color:red;color:white;"><span class="material-symbols-outlined">
+            delete
+            </span></button>
+            <div id="comments">
+            </div>
 <footer>Copyright &copy; Kemp Academy 2023.</footer>
 <script>
 let commentsAmount = document.getElementById("commentsAmount");
@@ -78,14 +97,45 @@ submit.addEventListener("click", function() {
     let commentValue = comment.value;
     let userComment = document.createElement("p");
     comments.appendChild(userComment);
-    userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue + "<button id='myBtn'><span class='material-symbols-outlined'>delete</span></button>";
+    userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue;
     amountOfComments++;
     commentsAmount.textContent = "Comments (" + amountOfComments + "):";
-    document.getElementById("deleteComment").addEventListener("click", function() {
-        userComment.remove();
-    });
 });
 
+//Modal stuff:
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+//Clearing code:
+let clearStuff = document.getElementById("clearStuff");
+clearStuff.addEventListener("click", function() {
+	comments.innerHTML = "";
+    modal.style.display = "none";
+});
 </script>
         </body>
         

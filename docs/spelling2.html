@@ -47,6 +47,29 @@ udes/css/sticky.css" rel="stylesheet" type="text/css">
     background: red;
     opacity: 0;
   }
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
 </style>
     </head>
     <body>
@@ -91,29 +114,81 @@ udes/css/sticky.css" rel="stylesheet" type="text/css">
             <button class="hoverme" id="checkq5">Check</button>
             <button onclick="checkAnswers()">Check answers</button>
             <button onclick="showSummary()">Show summary</button>
-            <h1>Comment:</h1>
-<label>Name:</label><input id="name" placeholder="Enter your name here..">
-<label>Comment:</label><input id="comment" placeholder="Type your comment here.."><button id="submit">Submit comment</button>
-<h2 id="commentsAmount">Comments (0):</h2>
-<div id="comments"></div>
-<footer>Copyright &copy; Kemp Academy 2023.</footer>
-<script>
-let commentsAmount = document.getElementById("commentsAmount");
-let amountOfComments = 0;
-let name = document.getElementById("name");
-let comment = document.getElementById("comment");
-let submit = document.getElementById("submit");
-let comments = document.getElementById("comments");
-submit.addEventListener("click", function() {
-	let nameValue = name.value;
-    let commentValue = comment.value;
-    let userComment = document.createElement("p");
-    comments.appendChild(userComment);
-    userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue;
-    amountOfComments++;
-    commentsAmount.textContent = "Comments (" + amountOfComments + "):";
-});
-</script>
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <!--<span class="close">&times;</span>-->
+                  <h2>Are you sure you want to clear all comments?</h2>
+                  <button class="close">Cancel</button>
+                  <button style="background-color:red;color:white;" id="clearStuff">Clear</button>
+                </div>
+              
+              </div>
+              <h1>Comment:</h1>
+              <label>Name:</label><input id="name" placeholder="Enter your name here..">
+              <label>Comment:</label><input id="comment" placeholder="Type your comment here.."><button id="submit" style="background-color:blue;color:white;"><span class="material-symbols-outlined">
+              send
+              </span></button>
+              <h2 id="commentsAmount">Comments (0):</h2>
+              <button id="myBtn" style="background-color:red;color:white;"><span class="material-symbols-outlined">
+              delete
+              </span></button>
+              <div id="comments">
+              </div>
+  <footer>Copyright &copy; Kemp Academy 2023.</footer>
+  <script>
+  let commentsAmount = document.getElementById("commentsAmount");
+  let amountOfComments = 0;
+  let name = document.getElementById("name");
+  let comment = document.getElementById("comment");
+  let submit = document.getElementById("submit");
+  let comments = document.getElementById("comments");
+  submit.addEventListener("click", function() {
+      let nameValue = name.value;
+      let commentValue = comment.value;
+      let userComment = document.createElement("p");
+      comments.appendChild(userComment);
+      userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue;
+      amountOfComments++;
+      commentsAmount.textContent = "Comments (" + amountOfComments + "):";
+  });
+  
+  //Modal stuff:
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
+  
+  //Clearing code:
+  let clearStuff = document.getElementById("clearStuff");
+  clearStuff.addEventListener("click", function() {
+      comments.innerHTML = "";
+      modal.style.display = "none";
+  });
+  </script>
 <audio src="https://www.myinstants.com/media/sounds/khan-academy-end-of-task-sound.mp3" id="sound2"></audio>
 <audio src="audio/newbettersound.mp3" id="sound1"></audio>
 
