@@ -1,7 +1,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
     color:black;
-    background: rgb(255, 255, 255);
+    background-color: rgb(253, 246, 232);
 }
 input{padding: 10px;
 font-family: 'Open Sans', sans-serif; border:black 1px solid;}
