@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Website updates - Kemp Academy</title>
+        <link rel="shortcut icon" href="images/kempacademylogo.png">
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+    <body>
+        <p><a href="index.html">Home</a> &gt; Articles &gt; <a href="websiteupdates.html">Website updates</a></p>
+        <h1>Website updates - Kemp Academy</h1>
+        <h2>About</h2>
+        <p>MillionNews has recently been launched by politics expert Max Li, but the articles are really biased. For example, it states that the US government’s intentions cannot even be described by “extremely nefarious” and that “freedom” and “democracy” is just a cover for election riggings. Kemp Academy creator Albert Kemp much disagrees with these opinions as he states “The US is a fair and free country and the system of democracy is a good choice.” Albert Kemp and Max Li will have to agree to disagree.
+        </p>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <!--<span class="close">&times;</span>-->
+              <h2>Are you sure you want to clear all comments?</h2>
+              <button class="close">Cancel</button>
+              <button style="background-color:red;color:white;" id="clearStuff">Clear</button>
+            </div>
+          
+          </div>
+          <h1>Comment:</h1>
+          <label>Name:</label><input id="name" placeholder="Enter your name here..">
+          <label>Comment:</label><input id="comment" placeholder="Type your comment here.."><button id="submit" style="background-color:blue;color:white;"><span class="material-symbols-outlined">
+          send
+          </span></button>
+          <h2 id="commentsAmount">Comments (0):</h2>
+          <button id="myBtn" style="background-color:red;color:white;"><span class="material-symbols-outlined">
+          delete
+          </span></button>
+          <div id="comments">
+          </div>
+<footer>Copyright &copy; Kemp Academy 2023.</footer>
+<script>
+let commentsAmount = document.getElementById("commentsAmount");
+let amountOfComments = 0;
+let name = document.getElementById("name");
+let comment = document.getElementById("comment");
+let submit = document.getElementById("submit");
+let comments = document.getElementById("comments");
+submit.addEventListener("click", function() {
+  let nameValue = name.value;
+  let commentValue = comment.value;
+  let userComment = document.createElement("p");
+  comments.appendChild(userComment);
+  userComment.innerHTML = "<img style='float:left;' src='https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png' height='50px'><b>" + nameValue + "</b><br>" + commentValue;
+  amountOfComments++;
+  commentsAmount.textContent = "Comments (" + amountOfComments + "):";
+});
+
+//Modal stuff:
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+  modal.style.display = "none";
+}
+}
+
+
+//Clearing code:
+let clearStuff = document.getElementById("clearStuff");
+clearStuff.addEventListener("click", function() {
+  comments.innerHTML = "";
+  modal.style.display = "none";
+});
+</script>
+    </body>
+</html>
