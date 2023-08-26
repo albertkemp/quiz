@@ -88,3 +88,7 @@ h2{color:crimson;}
   border: 1px solid #888;
   width: 80%;
 }
+nav{background-color: blue;color: white;font-family: 'Times New Roman', Times, serif;padding: 20px;font-size: 24px;position: fixed;top: 0;}
+nav a{color: white;background-color: blue;padding: 20px; font-family: 'Times New Roman', Times, serif; font-size: 24px;}
+nav a:hover{background-color: grey;cursor: pointer;}
+
