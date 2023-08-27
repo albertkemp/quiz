@@ -133,6 +133,14 @@ clearStuff.addEventListener("click", function() {
     modal.style.display = "none";
 });
 </script>
+<!--script for 404:-->
+<script>
+  let correctUrls = ["https://albertkemp.github.io/", "https://albertkemp.github.io", "https://albertkemp.github.io/mainhome.html", "https://albertkemp.github.io/articles.html", "https://albertkemp.github.io/quizzes.html", "https://albertkemp.github.io/countries.html", "https://albertkemp.github.io/ww2.html", "https://albertkemp.github.io/ww2lesson.html", "https://albertkemp.github.io/spelling.html", "https://albertkemp.github.io/math.html", "https://albertkemp.github.io/spelling2.html"];
+    let theUrl = window.location.href;
+    if (correctUrls.includes(theUrl) === false) {
+        window.location.href = "404.html";
+    }
+    </script>
         </body>
         
 </html>
